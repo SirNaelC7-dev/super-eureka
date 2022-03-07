@@ -11,7 +11,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap"
           rel="stylesheet"
         />
-        <title>Eureka</title>
+        <title>ConvertAll</title>
       </Head>
       <body>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />

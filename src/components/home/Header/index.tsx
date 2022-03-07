@@ -9,6 +9,7 @@ import {
   useColorModeValue,
   createIcon,
 } from '@chakra-ui/react';
+import Router from 'next/router'
 
 export default function Header() {
   return (
@@ -25,7 +26,7 @@ export default function Header() {
             lineHeight={'110%'}>
             Bem vindos a <br />
             <Text as={'span'} color={'blue.400'}>
-              Eureka
+            ConvertAll
             </Text>
           </Heading>
           <Text color={'gray.500'}>
@@ -44,7 +45,9 @@ export default function Header() {
               px={6}
               _hover={{
                 bg: 'blue.500',
-              }}>
+              }}
+              onClick={() =>Router.push('/categories')}
+            >
               Ver mais
             </Button>
             <Box>
