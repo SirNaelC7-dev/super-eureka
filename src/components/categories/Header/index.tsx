@@ -13,6 +13,9 @@ import {
   TabPanels,
   TabPanel,
 } from '@chakra-ui/react';
+import Area from '../Dimension/Area';
+import Length from '../Dimension/Length';
+import Volume from '../Dimension/Volume';
 
 export default function Header() {
   return (
@@ -40,19 +43,19 @@ export default function Header() {
         </Flex>
         <Tabs variant='soft-rounded' colorScheme='blue'>
             <TabList>
-                <Tab>Moeda</Tab>
-                <Tab>Temperatura</Tab>
-                <Tab>Temperatura</Tab>
+                <Tab>Área</Tab>
+                <Tab>Tamanho</Tab>
+                <Tab>Volume</Tab>
             </TabList>
             <TabPanels>
                 <TabPanel>
-                <p>one!</p>
+                  <Area />
                 </TabPanel>
                 <TabPanel>
-                <p>two!</p>
+                  <Length />
                 </TabPanel>
                 <TabPanel>
-                <p>three!</p>
+                  <Volume />
                 </TabPanel>
             </TabPanels>
         </Tabs>
