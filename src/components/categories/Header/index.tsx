@@ -42,7 +42,7 @@ export default function Header() {
         <Flex w={'full'}>
         </Flex>
         <Tabs variant='soft-rounded' colorScheme='blue'>
-            <TabList>
+            <TabList justifyContent='center'>
                 <Tab>Área</Tab>
                 <Tab>Tamanho</Tab>
                 <Tab>Volume</Tab>
