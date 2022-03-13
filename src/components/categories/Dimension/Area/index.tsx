@@ -85,7 +85,9 @@ const Area: NextComponentType = () => {
 
 
     const parseToMetro = (key: string) => {
+        // @ts-ignore
         if(parsesToMetro[key]){
+            // @ts-ignore
             const metroValue = parsesToMetro[key](value || 0)
             setValueParseToMetro(metroValue)
         }
@@ -93,7 +95,9 @@ const Area: NextComponentType = () => {
 
 
     const parseToFinalValue = (key: string) => {
+        // @ts-ignore
         if(parsesToFinalValue[key]){
+            // @ts-ignore
             const finalValue = parsesToFinalValue[key](valueParseToMetro)
             setMetroToFinalValue(finalValue)
         }
@@ -142,8 +146,8 @@ const Area: NextComponentType = () => {
                     flexDirection={'row-reverse'}
                     >
                         <Stat>
-                            <StatLabel>Resultado</StatLabel>
-                            <StatNumber>{metroToFinalValue}</StatNumber>
+                            <StatLabel color={'blue.400'}>Resultado</StatLabel>
+                            <StatNumber color={'blue.400'}>{metroToFinalValue}</StatNumber>
                             {/* <StatHelpText>Feb 12 - Feb 28</StatHelpText> */}
                         </Stat>
                     </Flex>
