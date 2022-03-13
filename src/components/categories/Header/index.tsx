@@ -13,10 +13,23 @@ import {
   TabPanels,
   TabPanel,
 } from '@chakra-ui/react';
+import { NextComponentType } from 'next';
+import React, { useEffect } from 'react';
 
+interface ItemProps {
+  name: string;
+  component: NextComponentType;
+}
+interface HeaderProps {
+  itens: ItemProps[];
+}
+export default function Header({itens}:HeaderProps) {
+  
+  useEffect(()=> {
+    console.log(itens);
 
-
-export default function Header({itens}:any) {
+  }, [])
+  
   return (
     <Container maxW={'5xl'}>
       <Stack
@@ -42,18 +55,18 @@ export default function Header({itens}:any) {
         </Flex>
         <Tabs variant='soft-rounded' colorScheme='blue'>
             <TabList justifyContent='center'>
-                {itens.map(({item}:any)=>{
+                {itens.map((item)=>{
                   return(
                     <Tab key={item.name} >{item.name }</Tab>
                   )
-                  })}
+                })}
             </TabList>
             <TabPanels>
-                {itens.map(({item}:any)=>{
+                {itens.map((item)=>{
                   return(
-                    <TabPanel key={item}>{<item.component/>}</TabPanel>
+                    <TabPanel key={item.name}>{item ? <item.component/>:<></>}</TabPanel>
                   )
-                  })}
+                })}
             </TabPanels>
         </Tabs>
       </Stack>

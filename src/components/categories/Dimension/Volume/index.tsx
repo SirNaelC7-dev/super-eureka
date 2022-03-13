@@ -16,13 +16,14 @@ import {
 import {
     ArrowRightIcon,
 } from '@chakra-ui/icons'
+import { NextComponentType } from 'next';
 
 let medida = 'Volume';
 let definicao = 'O volume é o espaço que é ocupado por alguma substância, é a determinação de qual volume pode ser ocupado dentro de um objeto ou de espaço.';
 
 const medidas = ['', 'Quilômetro Cúbico', 'Metro Cúbico', 'Hectolitro', 'Decalítro', 'Decímetro Cúbico', 'Litro', 'Decilitro', 'Angstrom', 'Centilitro', 'Centímetro cúbico', 'Mililitro', 'Milímetro Cúbico', 'Microlitro'];
 
-export default function Volume(){
+const Volume: NextComponentType = () => {
     return(
     <Container maxW={'md'}>
         <Stack spacing={'5'}>
@@ -85,3 +86,5 @@ export default function Volume(){
     </Container>
     )
 }
+
+export default Volume;

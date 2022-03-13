@@ -16,13 +16,14 @@ import {
 import {
     ArrowRightIcon,
 } from '@chakra-ui/icons'
+import { NextComponentType } from 'next';
 
 let medida = 'Comprimento';
 let definicao = 'A maior dimensão horizontal (de um objeto, de uma superfície) ou a dimensão que se encontra no eixo de sua orientação.';
 
 const medidas = ['', 'Quilômetro', 'Metro', 'Decímetro', 'Centímetro', 'Milímetro', 'Micrômetro', 'Nanômetro', 'Angstrom'];
 
-export default function Length(){
+const Length: NextComponentType = () => {
     return(
     <Container maxW={'md'}>
         <Stack spacing={'5'}>
@@ -85,3 +86,5 @@ export default function Length(){
     </Container>
     )
 }
+
+export default Length;
