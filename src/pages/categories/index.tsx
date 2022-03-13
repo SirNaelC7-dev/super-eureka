@@ -5,7 +5,7 @@ import Footer from "../../components/shared/Footer";
 export default function Categories() {
     return (
         <>
-            <Header />
+            <Header itens={[]}/>
             <Footer />
         </>
 

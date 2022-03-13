@@ -13,11 +13,10 @@ import {
   TabPanels,
   TabPanel,
 } from '@chakra-ui/react';
-import Area from '../Dimension/Area';
-import Length from '../Dimension/Length';
-import Volume from '../Dimension/Volume';
 
-export default function Header() {
+
+
+export default function Header({itens}:any) {
   return (
     <Container maxW={'5xl'}>
       <Stack
@@ -43,20 +42,18 @@ export default function Header() {
         </Flex>
         <Tabs variant='soft-rounded' colorScheme='blue'>
             <TabList justifyContent='center'>
-                <Tab>Área</Tab>
-                <Tab>Tamanho</Tab>
-                <Tab>Volume</Tab>
+                {itens.map(({item}:any)=>{
+                  return(
+                    <Tab key={item.name} >{item.name }</Tab>
+                  )
+                  })}
             </TabList>
             <TabPanels>
-                <TabPanel>
-                  <Area />
-                </TabPanel>
-                <TabPanel>
-                  <Length />
-                </TabPanel>
-                <TabPanel>
-                  <Volume />
-                </TabPanel>
+                {itens.map(({item}:any)=>{
+                  return(
+                    <TabPanel key={item}>{<item.component/>}</TabPanel>
+                  )
+                  })}
             </TabPanels>
         </Tabs>
       </Stack>
