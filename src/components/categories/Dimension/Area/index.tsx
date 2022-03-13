@@ -28,15 +28,15 @@ const medida = 'Área';
 const definicao = 'Área é um conceito matemático que pode ser definida como quantidade de espaço bidimensional, ou seja, de superfície. ';
 const medidas: MedidaProps[] = [
     {name:'', key:''},
-    {name:'Quilômetro', key: 'quilometro'},
+    {name:'Quilômetro Quadrado', key: 'quilometroQ'},
     {name:'Hectare', key:'hectare'},
     {name:'Are', key:'are'},
-    {name:'Metro', key: 'metro'},
-    {name:'Centímetro', key: 'centimetro'},
-    {name:'Milímetro', key: 'milimetro'},
-    {name:'Decímetro', key: 'decimetro'},
-    {name:'Micrômetro', key: 'micrometro'},
-    {name:'Nanometro', key: 'nanometro'}
+    {name:'Metro Quadrado', key: 'metroQ'},
+    {name:'Centímetro Quadrado', key: 'centimetroQ'},
+    {name:'Milímetro Quadrado', key: 'milimetroQ'},
+    {name:'Decímetro Quadrado', key: 'decimetroQ'},
+    {name:'Micrômetro Quadrado', key: 'micrometroQ'},
+    {name:'Nanometro Quadrado', key: 'nanometroQ'}
 ];
 
 const Area: NextComponentType = () => {

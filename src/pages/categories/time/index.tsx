@@ -1,30 +1,27 @@
-import { 
-    Tabs, 
-    TabList, 
-    Tab, 
-    TabPanel, 
-    TabPanels} from '@chakra-ui/react';
+import { NextComponentType } from 'next';
+import { useState } from 'react';
 
 import Time from '../../../components/categories/Time/Time';
 import TimeZones from '../../../components/categories/Time/TimeZones';
 
+import Header from '../../../components/categories/Header'
+import Footer from '../../../components/shared/Footer'
 
-export default function Dimension(){
-    return(
-        <Tabs variant='soft-rounded' colorScheme='blue'>
-            <TabList justifyContent='center'>
-                <Tab>Tempo</Tab>
-                <Tab>Zonas Horárias</Tab>
-            </TabList>
-            <TabPanels>
-                <TabPanel>
-                    <Time/>
-                </TabPanel>
-                <TabPanel>
-                    <TimeZones/>
-                </TabPanel>
-            </TabPanels>
-        </Tabs>
-    )
+interface ItemProps {
+    name: string;
+    component: NextComponentType;
 }
 
+export default function Timem(){
+    const mTime:ItemProps[] = [
+        {name:'Tempo', component:Time},
+        {name:'Fuso Horários', component:TimeZones},
+    ];
+    const [itens, setItens] = useState<ItemProps[]>(mTime);
+    return(
+        <>
+            <Header itens={itens}/>
+            <Footer/>
+        </>
+    )
+}

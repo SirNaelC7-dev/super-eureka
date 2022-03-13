@@ -19,11 +19,11 @@ export default function Categories() {
                     </ListItem>
                     <ListItem>
                         <ListIcon as={ArrowRightIcon} color='green.500' />
-                        Assumenda, quia temporibus eveniet a libero incidunt suscipit
+                        <Link href='categories/electricity'>Eletricidade</Link>
                     </ListItem>
                     <ListItem>
                         <ListIcon as={ArrowRightIcon} color='green.500' />
-                        Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+                        <Link href='categories/time'>Tempo</Link>
                     </ListItem>
                     {/* You can also use custom icons from react-icons */}
                     <ListItem>

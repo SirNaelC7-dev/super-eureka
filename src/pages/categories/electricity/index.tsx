@@ -1,9 +1,5 @@
-import { 
-    Tabs, 
-    TabList, 
-    Tab, 
-    TabPanel, 
-    TabPanels} from '@chakra-ui/react';
+import { NextComponentType } from 'next';
+import { useState } from 'react';
 
 import Capacitance from '../../../components/categories/Electricity/Capacitance';
 import ElectricalConductance from '../../../components/categories/Electricity/ElectricalConductance';
@@ -13,44 +9,31 @@ import ElectricCurrent from '../../../components/categories/Electricity/Electric
 import ElectricPotential from '../../../components/categories/Electricity/ElectricPotential';
 import Inductance from '../../../components/categories/Electricity/Inductance';
 
+import Header from '../../../components/categories/Header'
+import Footer from '../../../components/shared/Footer'
 
-
-export default function Dimension(){
-    return(
-        <Tabs variant='soft-rounded' colorScheme='blue'>
-            <TabList justifyContent='center'>
-                <Tab>Capacitância</Tab>
-                <Tab>Condutância Elétrica</Tab>
-                <Tab>Resistência Elétrica</Tab>
-                <Tab>Corrente Elétrica</Tab>
-                <Tab>Potencial Elétrico</Tab>
-                <Tab>Carga Elétrica</Tab>
-                <Tab>Indutância</Tab>
-            </TabList>
-            <TabPanels>
-                <TabPanel>
-                    <Capacitance />
-                </TabPanel>
-                <TabPanel>
-                    <ElectricalConductance/>
-                </TabPanel>
-                <TabPanel>
-                    <ElectricalResistance/>
-                </TabPanel>
-                <TabPanel>
-                    <ElectricCurrent/>
-                </TabPanel>
-                <TabPanel>
-                    <ElectricPotential/>
-                </TabPanel>
-                <TabPanel>
-                    <EletricalLoad/>
-                </TabPanel>
-                <TabPanel>
-                    <Inductance/>
-                </TabPanel>
-            </TabPanels>
-        </Tabs>
-    )
+interface ItemProps {
+    name: string;
+    component: NextComponentType;
 }
 
+export default function Electricity(){
+        const mElectricity:ItemProps[] = [
+            {name:'Capacitância', component:Capacitance},
+            {name:'Condutância Elétrica', component:ElectricalConductance},
+            {name:'Resistência Elétrica', component:ElectricalResistance},
+            {name:'Corrente Elétrica', component:ElectricCurrent},
+            {name:'Potencial Elétrico', component:ElectricPotential},
+            {name:'Carga Elétrica', component:EletricalLoad},
+            {name:'Indutância', component:Inductance},
+        ];
+        const [itens, setItens] = useState<ItemProps[]>(mElectricity);
+        return(
+            <>
+                <Header itens={itens}/>
+                <Footer/>
+            </>
+    )
+}
+                
+            
