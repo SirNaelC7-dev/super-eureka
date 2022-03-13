@@ -24,12 +24,7 @@ interface HeaderProps {
   itens: ItemProps[];
 }
 export default function Header({itens}:HeaderProps) {
-  
-  useEffect(()=> {
-    console.log(itens);
 
-  }, [])
-  
   return (
     <Container maxW={'5xl'}>
       <Stack
