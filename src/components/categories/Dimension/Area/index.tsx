@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Text,
     Container,
@@ -19,11 +19,28 @@ import {
 } from '@chakra-ui/icons'
 import { NextComponentType } from 'next';
 
-let medida = 'Área';
-let definicao = 'Área é um conceito matemático que pode ser definida como quantidade de espaço bidimensional, ou seja, de superfície. ';
-const medidas = ['', 'Quilômetro Quadrado', 'Hectare', 'Are', 'Metro Quadrado', 'Decímetro Quadrado', 'Centímetro Quadrado', 'Milímetro Quadrado', 'Micrômetro Quadrado', 'Nanometro Quadrado'];
+interface MedidaProps {
+    name: string,
+    key: string,
+}
+
+const medida = 'Área';
+const definicao = 'Área é um conceito matemático que pode ser definida como quantidade de espaço bidimensional, ou seja, de superfície. ';
+const medidas: MedidaProps[] = [
+    {name:'', key:''},
+    {name:'Quilômetro', key: 'quilometro'},
+    {name:'Hectare', key:'hectare'},
+    {name:'Are', key:'are'},
+    {name:'Metro', key: 'metro'},
+    {name:'Centímetro', key: 'centimetro'},
+    {name:'Milímetro', key: 'milimetro'},
+    {name:'Decímetro', key: 'decimetro'},
+    {name:'Micrômetro', key: 'micrometro'},
+    {name:'Nanometro', key: 'nanometro'}
+];
 
 const Area: NextComponentType = () => {
+    const [value, setValue] = useState<number | ''>(0);
     return(
         <Container maxW={'md'}>
             <Stack spacing={'5'}>
@@ -37,13 +54,13 @@ const Area: NextComponentType = () => {
                 </Text>
                 <FormControl>
                     <FormLabel color={'gray.600'}>Digite abaixo o valor para converter</FormLabel>
-                    <Input id='num' type='number'/>
+                    <Input id='num' type='number' value={value} onChange={(e)=>setValue(Number(e.target.value) || '')}/>
                     <FormLabel color={'gray.600'}>Selecione a medida em que está o valor</FormLabel>
                     <Select id='tipodado'>
 
                         {medidas.map((item)=>{
                             return(
-                                <option value={item} key={item}> {item} </option>
+                                <option value={item.key} key={item.key}> {item.name} </option>
                             )
                         })}
 
@@ -53,7 +70,7 @@ const Area: NextComponentType = () => {
                         
                         {medidas.map((item)=>{
                             return(
-                                <option value={item} key={item}> {item} </option>
+                                <option value={item.key} key={item.key}> {item.name} </option>
                             )
                         })}
 
@@ -88,3 +105,14 @@ const Area: NextComponentType = () => {
 }
 
 export default Area;
+
+const metroToCentimetro: (metros: number) => number = (metros) => {
+    return metros * 100;
+}
+
+const metroToMilimetro: (metros: number) => number = (metros) => {
+    return metros * 1000;
+}
+
+
+
